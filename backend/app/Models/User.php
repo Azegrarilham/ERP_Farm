@@ -2,47 +2,40 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
-class User extends Authenticatable
+class User extends Model
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    // Table name (optional, Laravel infers 'users' from class name)
+    protected $table = 'users';
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var list<string>
-     */
+    // Fillable fields for mass assignment
     protected $fillable = [
         'name',
         'email',
         'password',
+        'role',
     ];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var list<string>
-     */
+    // Hidden fields (e.g., for API responses)
     protected $hidden = [
         'password',
-        'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
+    // Cast fields (e.g., enum)
+    protected $casts = [
+        'role' => 'string', // Laravel 9+ can use enum casting, but string works for now
+    ];
+
+    // Relationship: A user (farmer) has one farm
+    public function farm()
     {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+        return $this->hasOne(Farm::class, 'user_id');
+    }
+
+    // Relationship: A user (client) has many orders
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'client_id');
     }
 }
