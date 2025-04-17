@@ -1,15 +1,14 @@
-// App.jsx
 import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import FarmerRoutes from "./modules/farmer"; // for testing Dev 1
-import AuthRoutes from "./modules/auth";
-// import here you Routes 
-import AdminRoutes from "./modules/admin";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+//import FarmerRoutes from "./modules/farmer";
+import InventoryRoutes from "./modules/inventory";
+
 function App() {
   return (
     <BrowserRouter>
-      <FarmerRoutes /> {/* for testing Dev 1  */}
-      {/* put it here the routes that u import */}
+      <Routes>
+        <Route path="/inventory/*" element={<InventoryRoutes />} />
+      </Routes>
     </BrowserRouter>
   );
 }
