@@ -1,0 +1,105 @@
+/* Palette ferme moderne : vert nature, bois clair, crème */
+:root {
+  --green: #4CAF50;
+  --dark-green: #388E3C;
+  --light-beige: #f5f2e7;
+  --wood: #a47c48;
+  --text-dark: #333;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--light-beige);
+  margin: 0;
+  padding: 0;
+  color: var(--text-dark);
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h2 {
+  text-align: center;
+  color: var(--green);
+  margin-bottom: 30px;
+}
+
+/* ===== Order Card ===== */
+.card, .order-form {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--card-shadow);
+  padding: 30px;
+  margin-bottom: 40px;
+  transition: transform 0.2s ease;
+}
+
+.card:hover, .order-form:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== Table Style ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background-color: var(--green);
+  color: white;
+  padding: 12px;
+  text-align: left;
+  font-size: 16px;
+}
+
+td {
+  background-color: #fff;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* ===== Form Style ===== */
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+select,
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--dark-green);
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+button:hover {
+  background-color: var(--green);
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.85rem;
+  color: #888;
+}
