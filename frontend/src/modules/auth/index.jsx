@@ -2,7 +2,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Home";
-import login from "./login";
+// import login from "./login";
 
 const AuthRoutes = () => (
   <Routes>

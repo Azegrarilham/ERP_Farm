@@ -1,6 +1,6 @@
 // index.jsx
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes } from "react-router-dom";
 
 
 const AdminRoutes = () => (
